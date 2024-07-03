@@ -1,6 +1,9 @@
 -- Enable mouse mode
 vim.opt.mouse = "a"
 
+-- Don't show the mode, since it's already in the status line
+vim.opt.showmode = false
+
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -26,10 +29,6 @@ vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 600
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
