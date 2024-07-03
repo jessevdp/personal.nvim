@@ -9,8 +9,6 @@ return {
     vim.opt.timeoutlen = 900
   end,
   config = function()
-    require('which-key').setup()
-
     -- Document existing key chains
     require('which-key').register {
       ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
