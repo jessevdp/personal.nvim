@@ -26,6 +26,17 @@ return {
       [[                                                                       ]],
     }
 
+    -- disable MRU
+    dashboard.section.mru.val = { { type = "padding", val = 0 } }
+
+    dashboard.section.footer.val = {
+      {
+        type = "text",
+        val = require("alpha.fortune"),
+        opts = { hl = "Conceal" },
+      },
+    }
+
     alpha.setup(dashboard.opts)
   end,
 }
