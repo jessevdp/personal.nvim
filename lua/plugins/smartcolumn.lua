@@ -1,7 +1,7 @@
 return {
   "m4xshen/smartcolumn.nvim", -- rulers
   opts = {
-    colorcolumn = { 81, 121 },
+    colorcolumn = { 80, 120 },
     disabled_filetypes = {
       "help",
       "text",
