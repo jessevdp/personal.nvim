@@ -60,6 +60,30 @@ return {
           prompt_title = "Live Grep in Open Files",
         }
       end, { desc = "[S]earch [/] in Open Files" })
+
+      local get_selection = function()
+        return vim.fn.getregion(vim.fn.getpos ".", vim.fn.getpos "v", { mode = vim.fn.mode() })
+      end
+
+      vim.keymap.set("v", "<space>sg", function()
+        builtin.live_grep { default_text = table.concat(get_selection()) }
+      end, { desc = "[S]earch by [G]rep" })
+
+      vim.keymap.set("v", "<leader>/", function()
+        builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+          winblend = 10,
+          previewer = false,
+          default_text = table.concat(get_selection()),
+        }))
+      end, { desc = "[/] Fuzzily search in current buffer" })
+
+      vim.keymap.set("v", "<leader>s/", function()
+        builtin.live_grep {
+          grep_open_files = true,
+          prompt_title = "Live Grep in Open Files",
+          default_text = table.concat(get_selection()),
+        }
+      end, { desc = "[S]earch [/] in Open Files" })
     end,
   }
 }
