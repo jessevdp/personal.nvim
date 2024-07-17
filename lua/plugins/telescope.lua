@@ -29,6 +29,11 @@ return {
             require("telescope.themes").get_dropdown(),
           },
         },
+        pickers = {
+          oldfiles = {
+            cwd_only = true,
+          },
+        },
       })
 
       pcall(require("telescope").load_extension, "fzf")
