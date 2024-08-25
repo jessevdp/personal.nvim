@@ -7,11 +7,13 @@ return {
       "text",
       "markdown",
 
-      -- disable rulers for plugin specific buffers
+      -- disable rulers for plugin specific windows/buffers
       "lazy",
       "checkhealth",
       "alpha",
       "neo-tree",
+      "mason",
+      "lspinfo",
     },
   },
 }
