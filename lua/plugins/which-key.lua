@@ -10,22 +10,33 @@ return {
   end,
   config = function()
     -- Document existing key chains
-    require("which-key").register {
-      ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-      ["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-      ["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
-      ["<leader>gh"] = { name = "[G]it [H]unk", _ = "which_key_ignore" },
-      ["<leader>h"] = { name = "[H]arpoon", _ = "which_key_ignore" },
-      ["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-      ["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-      ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-    }
-    -- visual mode
-    require("which-key").register({
-      ["<leader>g"] = { "[G]it" },
-      ["<leader>gh"] = { "Git [H]unk" },
-      ["<leader>s"] = { "[S]earch" },
-    }, { mode = "v" })
+    require("which-key").add({
+        { "<leader>c",   group = "[C]ode" },
+        { "<leader>c_",  hidden = true },
+        { "<leader>d",   group = "[D]ocument" },
+        { "<leader>d_",  hidden = true },
+        { "<leader>g",   group = "[G]it" },
+        { "<leader>g_",  hidden = true },
+        { "<leader>gh",  group = "[G]it [H]unk" },
+        { "<leader>gh_", hidden = true },
+        { "<leader>gt",  group = "[G]it [T]oggle" },
+        { "<leader>gt_", hidden = true },
+        { "<leader>h",   group = "[H]arpoon" },
+        { "<leader>h_",  hidden = true },
+        { "<leader>r",   group = "[R]ename" },
+        { "<leader>r_",  hidden = true },
+        { "<leader>s",   group = "[S]earch" },
+        { "<leader>s_",  hidden = true },
+        { "<leader>w",   group = "[W]orkspace" },
+        { "<leader>w_",  hidden = true },
+        -- { "<leader>t", group = "[T]oggle" },
+        -- { "<leader>t_", hidden = true },
+      },
+      {
+        mode = "v",
+        ["<leader>g"] = { "[G]it" },
+        ["<leader>gh"] = { "Git [H]unk" },
+        ["<leader>s"] = { "[G]it" },
+      })
   end,
 }
-
