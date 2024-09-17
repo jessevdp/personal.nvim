@@ -29,8 +29,9 @@ return {
           -- map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
           map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
 
-          map('<leader>rn', vim.lsp.buf.rename, "[R]e[n]ame")
+          map('<leader>cr', vim.lsp.buf.rename, "[C]ode [R]ename")
           map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+          map("<leader>cf", vim.lsp.buf.format, "[C]ode [F]ormat")
 
           map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
           map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
