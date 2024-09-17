@@ -18,7 +18,7 @@ return {
         else
           gitsigns.nav_hunk("next")
         end
-      end, { desc = "Previous [G]it [H]unk" })
+      end, { desc = "Next Git [H]unk" })
 
       map("n", "[h", function()
         if vim.wo.diff then
@@ -26,7 +26,7 @@ return {
         else
           gitsigns.nav_hunk("prev")
         end
-      end, { desc = "Next [G]it [H]unk" })
+      end, { desc = "Previous Git [H]unk" })
 
       -- Actions
       map("n", "<leader>ghs", gitsigns.stage_hunk, { desc = "[G]it [H]unk [S]tage" })
@@ -48,7 +48,7 @@ return {
 
       map("n", "<leader>gtd", gitsigns.toggle_deleted, { desc = "[G]it [T]oggle [D]eleted" })
 
-      map("n", "<leader>ghd", gitsigns.diffthis, { desc = "[G]it Hunk TODO" })
+      map("n", "<leader>gd", gitsigns.diffthis, { desc = "[G]it [D]iff" })
       -- map("n", "<leader>ghD", function() gitsigns.diffthis("~") end, { desc = "[G]it Hunk TODO" })
 
       -- Text object
