@@ -23,11 +23,11 @@ return {
 
           map("K", vim.lsp.buf.hover, "Hover Documentation")
 
-          -- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-          map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+          map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+          -- map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 
-          -- map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-          map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+          map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+          -- map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
 
           map('<leader>cr', vim.lsp.buf.rename, "[C]ode [R]ename")
           map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
