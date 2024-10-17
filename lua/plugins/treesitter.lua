@@ -2,7 +2,20 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   opts = {
-    ensure_installed = { "bash", "diff", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+    ensure_installed = {
+      "bash",
+      "diff",
+      "git_config",
+      "git_rebase",
+      "gitattributes",
+      "gitcommit",
+      "gitignore",
+      "lua",
+      "luadoc",
+      "markdown",
+      "vim",
+      "vimdoc",
+    },
     auto_install = true,
     highlight = {
       enable = true,
@@ -21,4 +34,3 @@ return {
     require("nvim-treesitter.configs").setup(opts)
   end
 }
-
