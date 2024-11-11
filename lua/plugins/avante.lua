@@ -1,12 +1,16 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  build = "make BUILD_FROM_SOURCE=true luajit", -- needs Rust installed -- build = "make",
+  lazy = false,
+  version = false, -- set this if you want to always pull the latest change
+  -- build = "make BUILD_FROM_SOURCE=true luajit", -- needs Rust installed -- build = "make",
+  build = "make",
   dependencies = {
-    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     {
       "MeanderingProgrammer/render-markdown.nvim",
       opts = {
@@ -32,7 +36,6 @@ return {
         end,
       },
     },
-    hints = { enabled = false },
     behaviour = {
       auto_suggestions = false, -- Experimental stage
       auto_set_highlight_group = true,
@@ -40,23 +43,7 @@ return {
       auto_apply_diff_after_generation = false,
       support_paste_from_clipboard = false,
     },
-    windows = {
-      sidebar_header = {
-        align = "left",
-        rounded = false,
-      },
-    },
-    highlights = {
-      ---@type AvanteConflictHighlights
-      diff = {
-        current = "DiffDelete",
-        incoming = "DiffAdd",
-      },
-    },
     mappings = {
-      ask = "<leader>aa",
-      edit = "<leader>ae",
-      refresh = "<leader>ar",
       --- @class AvanteConflictMappings
       diff = {
         ours = "co",
@@ -81,14 +68,60 @@ return {
         normal = "<C-y>",
         insert = "<C-y>",
       },
+      ask = "<leader>aa",
+      edit = "<leader>ae",
+      refresh = "<leader>ar",
+      focus = "<leader>af",
+      toggle = {
+        default = "<leader>at",
+        debug = "<leader>ad",
+        hint = "<leader>ah",
+        suggestion = "<leader>as",
+        repomap = "<leader>aR",
+      },
       sidebar = {
+        apply_all = "A",
+        apply_cursor = "a",
         switch_windows = "<Tab>",
         reverse_switch_windows = "<S-Tab>",
       },
-      toggle = {
-        debug = "<leader>ad",
-        hint = "<leader>ah",
+    },
+    hints = { enabled = false },
+    windows = {
+      ---@type "right" | "left" | "top" | "bottom"
+      position = "right", -- the position of the sidebar
+      wrap = true, -- similar to vim.o.wrap
+      width = 30, -- default % based on available width
+      sidebar_header = {
+        enabled = false, -- true, false to enable/disable the header
+        align = "center", -- left, center, right for title
+        rounded = false,
       },
+      input = {
+        prefix = "> ",
+      },
+      edit = {
+        border = "rounded",
+        start_insert = true,
+      },
+      ask = {
+        floating = false,
+        start_insert = true,
+        border = "rounded",
+      },
+    },
+    highlights = {
+      ---@type AvanteConflictHighlights
+      diff = {
+        current = "DiffDelete",
+        incoming = "DiffAdd",
+      },
+    },
+    --- @class AvanteConflictUserConfig
+    diff = {
+      autojump = true,
+      ---@type string | fun(): any
+      list_opener = "copen",
     },
   },
 }
