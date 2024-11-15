@@ -37,8 +37,10 @@ vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 
 -- Jump through quickfix-error-list, centering the current line in the screen
-vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz", { desc = "Go to previous [Q]uickfix location" })
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz", { desc = "Go to next [Q]uickfix location" })
+vim.keymap.set("n", "[Q", "<cmd>cfirst<CR>zz", { desc = "Go to first [Q]uickfix location" })
+vim.keymap.set("n", "]Q", "<cmd>clast<CR>zz", { desc = "Go to last [Q]uickfix location" })
 
 -- Shortcut to copy into system clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
