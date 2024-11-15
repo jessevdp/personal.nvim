@@ -18,7 +18,7 @@ return {
         else
           gitsigns.nav_hunk("next")
         end
-      end, { desc = "Next Git [H]unk" })
+      end, { desc = "Go to next Git [H]unk" })
 
       map("n", "[h", function()
         if vim.wo.diff then
@@ -26,7 +26,23 @@ return {
         else
           gitsigns.nav_hunk("prev")
         end
-      end, { desc = "Previous Git [H]unk" })
+      end, { desc = "Go to previous Git [H]unk" })
+
+      map("n", "[H", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "[H", bang = true })
+        else
+          gitsigns.nav_hunk("first")
+        end
+      end, { desc = "Go to first Git [H]unk" })
+
+      map("n", "]H", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "]H", bang = true })
+        else
+          gitsigns.nav_hunk("last")
+        end
+      end, { desc = "Go to last Git [H]unk" })
 
       -- Actions
       map("n", "<leader>ghs", gitsigns.stage_hunk, { desc = "[G]it [H]unk [S]tage" })
