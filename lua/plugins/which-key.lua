@@ -10,6 +10,10 @@ return {
   opts = {
     spec = {
       { "<leader>s", group = "[S]earch" },
+      { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
+      { "<leader>d", group = "[D]ocument" },
+      { "<leader>w", group = "[W]orkspace" },
+      { "<leader>m", group = "[M]ove (swap) textobjects" },
     },
   },
   keys = {
