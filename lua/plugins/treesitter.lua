@@ -125,6 +125,18 @@ return {
             ["[K"] = { query = "@comment.outer", desc = "Go to previous [C]omment end" },
           },
         },
+        lsp_interop = {
+          enable = true,
+          border = "none",
+          floating_preview_opts = {},
+          peek_definition_code = {
+            ["<leader>pf"] = { query = "@function.outer", desc = "[P]eek [F]unction Definition" },
+            ["<leader>pF"] = { query = "@class.outer", desc = "[P]eek [F]unction host Class Definition" },
+            ["<leader>pm"] = { query = "@function.outer", desc = "[P]eek [M]ethod Definition" },
+            ["<leader>pM"] = { query = "@class.outer", desc = "[P]eek [M]ethod host Class Definition" },
+            ["<leader>pc"] = { query = "@class.outer", desc = "[P]eek [C]lass Definition" },
+          },
+        },
       },
     },
     config = function(_, opts)

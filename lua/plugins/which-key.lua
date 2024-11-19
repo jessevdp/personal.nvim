@@ -14,6 +14,7 @@ return {
       { "<leader>d", group = "[D]ocument" },
       { "<leader>w", group = "[W]orkspace" },
       { "<leader>m", group = "[M]ove (swap) textobjects" },
+      { "<leader>p", group = "[P]eek Definition" },
     },
   },
   keys = {
