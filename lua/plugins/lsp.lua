@@ -23,8 +23,8 @@ return {
           map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
           map({ "n", "x" }, "<leader>cf", vim.lsp.buf.format, "[C]ode [F]ormat")
 
-          map("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-          map("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+          map("n", "<leader>ssd", require("telescope.builtin").lsp_document_symbols, "[S]earch [D]ocument [S]ymbols")
+          map("n", "<leader>ssw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[S]earch [W]orkspace [S]ymbols")
         end,
       })
     end,
