@@ -43,8 +43,36 @@ return {
         function(server_name)
           require('lspconfig')[server_name].setup({})
         end,
-      }
+        lua_ls = function()
+          require("lspconfig").lua_ls.setup({
+            settings = {
+              Lua = {
+                format = { enable = false },
+              },
+            },
+          })
+        end,
+      },
     },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPost", "BufNewFile", "VeryLazy" },
+    dependencies = {
+      "nvimtools/none-ls.nvim",
+    },
+    config = function()
+      require("mason-null-ls").setup({
+        ensure_installed = { "stylua", "jq" },
+        automatic_installation = false,
+        handlers = {},
+      })
+      require("null-ls").setup({
+        sources = {
+          -- add sources not supported by Mason here
+        },
+      })
+    end,
   },
   {
     "folke/lazydev.nvim",
