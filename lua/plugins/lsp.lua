@@ -52,6 +52,11 @@ return {
             },
           })
         end,
+        ruby_lsp = function()
+          require("lspconfig").ruby_lsp.setup({
+            cmd = { vim.fn.expand("~") .. "/.rbenv/shims/ruby-lsp" },
+          })
+        end,
       },
     },
   },
