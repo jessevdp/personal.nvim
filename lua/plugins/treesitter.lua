@@ -130,7 +130,7 @@ return {
     config = function(_, opts)
       require("nvim-treesitter.install").prefer_git = true
       require("nvim-treesitter.configs").setup(opts)
-    end
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",

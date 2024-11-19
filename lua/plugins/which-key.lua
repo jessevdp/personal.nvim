@@ -17,6 +17,12 @@ return {
     },
   },
   keys = {
-    { "<leader>?", function() require("which-key").show({ global = true }) end, desc = "Buffer Keymaps" },
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = true })
+      end,
+      desc = "Buffer Keymaps",
+    },
   },
 }
