@@ -148,4 +148,41 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     event = "VeryLazy",
   },
+  {
+    "Wansmer/treesj",
+    event = { "BufReadPost", "BufNewFile", "VeryLazy" },
+    keys = {
+      {
+        "<leader>cs",
+        function()
+          require("treesj").split()
+        end,
+        desc = "[S]plit Treesitter node",
+      },
+      {
+        "<leader>cS",
+        function()
+          require("treesj").split({ split = { recursive = true } })
+        end,
+        desc = "[S]plit Treesitter node recursively",
+      },
+      {
+        "<leader>cj",
+        function()
+          require("treesj").join()
+        end,
+        desc = "[J]oin Treesitter node",
+      },
+      {
+        "<leader>cJ",
+        function()
+          require("treesj").join({ join = { recursive = true } })
+        end,
+        desc = "[J]oin Treesitter node recursively",
+      },
+    },
+    opts = {
+      use_default_keymaps = false,
+    },
+  },
 }
