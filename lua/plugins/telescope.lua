@@ -1,7 +1,10 @@
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.8",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
   event = "VimEnter",
   keys = {
     { "<leader>sf", "<cmd>Telescope find_files<CR>", desc = "[S]earch [F]iles" },
@@ -31,5 +34,19 @@ return {
         n = { ["q"] = "close" },
       },
     },
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({
+          borderchars = {
+            prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+            results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+            preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+          },
+        }),
+      },
+    },
   },
+  init = function()
+    require("telescope").load_extension("ui-select")
+  end,
 }
