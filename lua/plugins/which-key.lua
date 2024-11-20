@@ -10,7 +10,7 @@ return {
   opts = {
     spec = {
       { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-      { "<leader>m", group = "[M]ove (swap) textobjects" },
+      { "<leader>cm", group = "[M]ove (swap) textobjects" },
       { "<leader>p", group = "[P]eek Definition" },
       { "<leader>s", group = "[S]earch" },
       { "<leader>ss", group = "[S]earch LSP [S]ymbols" },

@@ -79,14 +79,14 @@ return {
         swap = {
           enable = true,
           swap_next = {
-            ["<leader>ma"] = { query = "@parameter.inner", desc = "[M]ove (swap) parameter/[A]rgument forwards" },
-            ["<leader>mf"] = { query = "@function.outer", desc = "[M]ove (swap) [F]unction forwards" },
-            ["<leader>mm"] = { query = "@function.outer", desc = "[M]ove (swap) [M]ethod forwards" },
+            ["<leader>cma"] = { query = "@parameter.inner", desc = "Swap parameter/[A]rgument forwards" },
+            ["<leader>cmf"] = { query = "@function.outer", desc = "Swap [F]unction forwards" },
+            ["<leader>cmm"] = { query = "@function.outer", desc = "Swap [M]ethod forwards" },
           },
           swap_previous = {
-            ["<leader>mA"] = { query = "@parameter.inner", desc = "[M]ove (swap) parameter/[A]rgument backwards" },
-            ["<leader>mF"] = { query = "@function.outer", desc = "[M]ove (swap) [F]unction backwards" },
-            ["<leader>mM"] = { query = "@function.outer", desc = "[M]ove (swap) [M]ethod backwards" },
+            ["<leader>cmA"] = { query = "@parameter.inner", desc = "Swap parameter/[A]rgument backwards" },
+            ["<leader>cmF"] = { query = "@function.outer", desc = "Swap [F]unction backwards" },
+            ["<leader>cmM"] = { query = "@function.outer", desc = "Swap [M]ethod backwards" },
           },
         },
         move = {
