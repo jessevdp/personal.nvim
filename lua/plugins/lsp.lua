@@ -35,6 +35,13 @@ return {
     opts = {},
   },
   {
+    -- NOTE: Remove this if/when Mason implements its own lockfile feature.
+    -- See: https://github.com/williamboman/mason.nvim/issues/731
+    "zapling/mason-lock.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
