@@ -11,6 +11,9 @@ return {
     spec = {
       { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
       { "<leader>cm", group = "[M]ove (swap) textobjects" },
+      { "<leader>g", group = "[G]it" },
+      { "<leader>gh", group = "[G]it [H]unk" },
+      { "<leader>gt", group = "[G]it [T]oggle" },
       { "<leader>p", group = "[P]eek Definition" },
       { "<leader>s", group = "[S]earch" },
       { "<leader>ss", group = "[S]earch LSP [S]ymbols" },

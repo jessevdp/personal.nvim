@@ -84,6 +84,7 @@ return {
       null_ls.setup({
         sources = {
           -- add sources not supported by Mason here
+          null_ls.builtins.code_actions.gitsigns, -- GitSigns actions as LSP Code actions!!
           null_ls.builtins.hover.dictionary,
           null_ls.builtins.hover.printenv,
         },
