@@ -11,11 +11,8 @@ return {
           end
 
           map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
-          map("n", "gs", vim.lsp.buf.signature_help, "[G]oto [S]ignature Help")
-
           map("n", "gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
           -- map("n", "gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-
           map("n", "gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
           -- map("n", "gr", vim.lsp.buf.references, "[G]oto [R]eferences")
 
