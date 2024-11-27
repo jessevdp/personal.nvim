@@ -5,13 +5,13 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     opts = {
       mappings = {
-        add = "gza", -- Add surrounding in Normal and Visual modes
-        replace = "gzr", -- Replace surrounding
-        delete = "gzd", -- Delete surrounding
-        find = "gzf", -- Find surrounding (to the right)
-        find_left = "gzF", -- Find surrounding (to the left)
-        highlight = "gzh", -- Highlight surrounding
-        update_n_lines = "gzn", -- Update `n_lines`
+        add = "gsa", -- Add surrounding in Normal and Visual modes
+        replace = "gsr", -- Replace surrounding
+        delete = "gsd", -- Delete surrounding
+        find = "gsf", -- Find surrounding (to the right)
+        find_left = "gsF", -- Find surrounding (to the left)
+        highlight = "gsh", -- Highlight surrounding
+        update_n_lines = "gsn", -- Update `n_lines`
       },
       search_method = "cover",
     },
