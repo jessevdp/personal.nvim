@@ -14,6 +14,20 @@ return {
     { "<leader>s.", "<cmd>Telescope oldfiles<CR>", desc = "[S]earch Recent Files ('.' for repeat)" },
     { "<leader><leader>", "<cmd>Telescope buffers<CR>", desc = "Search Existing Buffers" },
     { "<leader>sr", "<cmd>Telescope resume<CR>", desc = "[S]earch [R]esume" },
+    {
+      "<leader>s/",
+      function()
+        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+          previewer = false,
+          borderchars = {
+            prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+            results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+            preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+          },
+        }))
+      end,
+      desc = "[S]earch Fuzzily in current buffer",
+    },
   },
   opts = {
     defaults = {
