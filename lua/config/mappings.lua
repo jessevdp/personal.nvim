@@ -50,3 +50,6 @@ vim.keymap.set("n", "<leader>+", "<cmd>let @+=@0<CR>", { desc = "Copy last yank 
 -- Shortcut for closing/deleting buffers
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
 vim.keymap.set("n", "<leader>X", "<cmd>%bdelete<CR>", { desc = "Close all buffers" })
+
+-- Browse parent dir
+vim.keymap.set("n", "-", "<cmd>ExploreAndFocus<CR>")
