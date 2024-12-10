@@ -15,6 +15,7 @@ return {
         "checkhealth",
         "mason",
         "lspinfo",
+        "neo-tree",
       },
     },
   },
