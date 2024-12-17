@@ -7,7 +7,12 @@ return {
     vim.opt.timeout = true
     vim.opt.timeoutlen = 900
   end,
+  --- @class wk.Opts
   opts = {
+    preset = "helix",
+    win = {
+      border = "single",
+    },
     spec = {
       { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
       { "<leader>cm", group = "[M]ove (swap) textobjects" },
