@@ -6,6 +6,9 @@ return {
       options = {
         section_separators = "",
         component_separators = { left = "|", right = "|" },
+        disabled_filetypes = {
+          "trouble",
+        }
       },
       sections = {
         lualine_a = {

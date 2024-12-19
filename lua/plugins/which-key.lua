@@ -19,6 +19,7 @@ return {
       { "<leader>g", group = "[G]it" },
       { "<leader>gh", group = "[G]it [H]unk" },
       { "<leader>gt", group = "[G]it [T]oggle" },
+      { "<leader>l", group = "[L]ist" },
       { "<leader>p", group = "[P]eek Definition" },
       { "<leader>s", group = "[S]earch" },
       { "<leader>ss", group = "[S]earch LSP [S]ymbols" },
