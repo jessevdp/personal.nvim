@@ -1,8 +1,8 @@
 {
   "eslint-lsp": "4.10.0",
   "jq": "jq-1.7",
-  "lua-language-server": "3.13.2",
-  "ruby-lsp": "0.22.0",
+  "lua-language-server": "3.13.4",
+  "ruby-lsp": "0.22.1",
   "stylua": "v0.20.0",
   "typescript-language-server": "4.3.3"
 }
