@@ -9,6 +9,9 @@ return {
     opts = {
       close_if_last_window = true,
       popup_border_style = "single",
+      filesystem = {
+        hijack_netrw_behavior = "disabled",
+      },
       window = {
         position = "float",
         mappings = {
