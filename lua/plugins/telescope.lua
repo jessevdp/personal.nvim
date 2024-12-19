@@ -45,7 +45,20 @@ return {
       },
       borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       mappings = {
-        n = { ["q"] = "close" },
+        i = {
+          ["<C-q>"] = "send_to_qflist",
+          ["<C-Q>"] = "add_to_qflist",
+          ["<M-q>"] = "smart_send_to_qflist",
+          ["<M-Q>"] = "smart_add_to_qflist",
+        },
+        n = {
+          ["q"] = "close",
+
+          ["<C-q>"] = "send_to_qflist",
+          ["<C-Q>"] = "add_to_qflist",
+          ["<M-q>"] = "smart_send_to_qflist",
+          ["<M-Q>"] = "smart_add_to_qflist",
+        },
       },
     },
     extensions = {
