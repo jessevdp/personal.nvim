@@ -11,6 +11,10 @@ return {
           "trouble",
         }
       },
+      extensions = {
+        "quickfix",
+        "trouble",
+      },
       sections = {
         lualine_a = {
           {
