@@ -21,7 +21,12 @@ return {
           map({ "n", "x" }, "<leader>cf", vim.lsp.buf.format, "[C]ode [F]ormat")
 
           map("n", "<leader>ssd", require("telescope.builtin").lsp_document_symbols, "[S]earch [D]ocument [S]ymbols")
-          map("n", "<leader>ssw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[S]earch [W]orkspace [S]ymbols")
+          map(
+            "n",
+            "<leader>ssw",
+            require("telescope.builtin").lsp_dynamic_workspace_symbols,
+            "[S]earch [W]orkspace [S]ymbols"
+          )
         end,
       })
     end,
@@ -81,7 +86,7 @@ return {
       null_ls.setup({
         sources = {
           -- add sources not supported by Mason here
-          null_ls.builtins.code_actions.gitsigns, -- GitSigns actions as LSP Code actions!!
+          -- null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.hover.dictionary,
           null_ls.builtins.hover.printenv,
         },
