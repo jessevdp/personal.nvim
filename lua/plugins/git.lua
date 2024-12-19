@@ -64,6 +64,7 @@ return {
         map("n", "<leader>ghU", gitsigns.reset_buffer_index, "[G]it [U]ndo Stage Buffer")
 
         map("n", "<leader>gd", function() gitsigns.diffthis("@") end, "[G]it [D]iff against HEAD")
+        map("n", "<leader>gD", function() gitsigns.diffthis("main") end, "[G]it [D]iff against main")
 
         map("n", "<leader>gb", function()
           gitsigns.blame_line({ full = true })
