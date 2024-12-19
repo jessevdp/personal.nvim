@@ -23,7 +23,8 @@ return {
       { "<leader>p", group = "[P]eek Definition" },
       { "<leader>s", group = "[S]earch" },
       { "<leader>ss", group = "[S]earch LSP [S]ymbols" },
-      { "gz", group = "Surround ([z]=s)" },
+      { "<leader>ss", group = "[S]earch LSP [S]ymbols" },
+      { "gs", group = "[S]urround" },
     },
   },
   keys = {
