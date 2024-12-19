@@ -1,12 +1,13 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    event = { "VeryLazy" },
+    event = { "VimEnter" },
     opts = {
       options = {
         section_separators = "",
         component_separators = { left = "|", right = "|" },
         disabled_filetypes = {
+          "alpha",
           "trouble",
         }
       },
