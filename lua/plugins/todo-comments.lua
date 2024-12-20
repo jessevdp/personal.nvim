@@ -6,6 +6,13 @@ return {
     opts = {
       highlight = {
         keyword = "bg",
+        pattern = {
+          [[.*<(KEYWORDS)\s*:]],
+          [[.*<(KEYWORDS)\s*]],
+        },
+      },
+      search = {
+        pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon
       },
     },
   },
