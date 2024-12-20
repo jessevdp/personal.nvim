@@ -4,6 +4,13 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
+      italic = {
+        strings = false,
+        emphasis = false,
+        comments = false,
+        operators = false,
+        folds = false,
+      },
       overrides = {
         CursorLineNr = { bg = "" },
         SignColumn = { link = "Normal" },
@@ -22,6 +29,7 @@ return {
         ["@method.call"] = { link = "GruvboxAqua" },
         ["@function.call"] = { link = "GruvboxAqua" },
 
+        ["FlashMatch"] = { link = "IncSearch" },
 
         -- Ruby specific overrides
         ["@lsp.typemod.method.declaration.ruby"] = { link = "rubyMethodName" },
