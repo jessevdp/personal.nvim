@@ -1,64 +1,34 @@
+---@diagnostic disable: missing-fields
 return {
-  "hrsh7th/nvim-cmp",
-  event = { "InsertEnter" },
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "ray-x/cmp-treesitter",
-    "hrsh7th/cmp-path",
-  },
-  config = function()
-    local cmp = require("cmp")
-
-    cmp.setup({
+  {
+    "saghen/blink.cmp",
+    version = "v0.*",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = {
+        ["<C-e>"] = { "show", "hide" },
+        ["<C-y>"] = { "select_and_accept" },
+        ["<C-p>"] = { "select_prev", "fallback" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-?>"] = { "show_documentation", "hide_documentation" },
+        ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+        ["<Tab>"] = { "snippet_forward", "fallback" },
+        ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      },
+      appearance = {
+        nerd_font_variant = "mono",
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
       completion = {
-        autocomplete = false,
+        menu = {
+          auto_show = false,
+        },
       },
-      mapping = {
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-d>"] = cmp.mapping.scroll_docs(4),
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = function()
-          if cmp.visible() then
-            cmp.abort()
-          else
-            cmp.complete()
-          end
-        end,
-        ["<C-l>"] = cmp.mapping(function(fallback)
-          if vim.snippet.active({ direction = 1 }) then
-            vim.snippet.jump(1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      },
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "path" },
-      }, {
-        { name = "treesitter" },
-        { name = "buffer" },
-      }),
-      snippet = {
-        expand = function(args)
-          vim.snippet.expand(args.body)
-        end,
-      },
-      ---@diagnostic disable-next-line: missing-fields
-      formatting = {
-        format = function(entry, vim_item)
-          vim_item.menu = ({
-            buffer = "[Buf]",
-            treesitter = "[TS]",
-          })[entry.source.name]
-          return vim_item
-        end,
-      },
-    })
-  end,
+      signature = { enabled = true },
+    },
+  },
 }

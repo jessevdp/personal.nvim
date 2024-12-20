@@ -29,6 +29,10 @@ return {
           )
         end,
       })
+
+      local lspconfig = require("lspconfig").util.default_config
+      local completion_capabilities = require("blink.cmp").get_lsp_capabilities()
+      lspconfig.capabilities = vim.tbl_deep_extend("force", lspconfig.capabilities, completion_capabilities)
     end,
   },
   {
