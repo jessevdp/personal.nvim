@@ -1,14 +1,6 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      {
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = { file_types = { "codecompanion" } },
-      },
-    },
     cmd = {
       "CodeCompanion",
       "CodeCompanionActions",
@@ -35,9 +27,31 @@ return {
           return require("plugins.codecompanion.aio-openai-adapter").setup()
         end,
       },
+      display = {
+        diff = {
+          provider = "mini_diff",
+        },
+      },
     },
     init = function()
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = { file_types = { "codecompanion" } },
+      },
+      {
+        "echasnovski/mini.diff",
+        config = function()
+          local diff = require("mini.diff")
+          diff.setup({
+            source = diff.gen_source.none(),
+          })
+        end,
+      },
+    },
   },
 }
