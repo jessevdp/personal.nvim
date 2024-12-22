@@ -16,6 +16,7 @@ return {
         "mason",
         "lspinfo",
         "neo-tree",
+        "codecompanion",
       },
     },
   },
