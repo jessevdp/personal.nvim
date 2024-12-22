@@ -36,5 +36,8 @@ return {
         end,
       },
     },
+    init = function()
+      require("plugins.codecompanion.fidget-spinner"):init()
+    end,
   },
 }
