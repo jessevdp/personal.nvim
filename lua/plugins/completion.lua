@@ -28,6 +28,22 @@ return {
       signature = { enabled = true },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
+        completion = {
+          enabled_providers = function()
+            if vim.bo.filetype == "codecompanion" then
+              return { "codecompanion" }
+            else
+              return { "lsp", "path", "snippets", "buffer" }
+            end
+          end,
+        },
+        providers = {
+          codecompanion = {
+            name = "CodeCompanion",
+            module = "codecompanion.providers.completion.blink",
+            enabled = true,
+          },
+        },
       },
     },
   },
