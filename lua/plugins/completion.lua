@@ -28,15 +28,10 @@ return {
       signature = { enabled = true },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
-        completion = {
-          enabled_providers = function()
-            if vim.bo.filetype == "codecompanion" then
-              return { "codecompanion" }
-            else
-              return { "lsp", "path", "snippets", "buffer" }
-            end
-          end,
+        per_filetype = {
+          ["codecompanion"] = { "codecompanion" },
         },
+        cmdline = {},
         providers = {
           codecompanion = {
             name = "CodeCompanion",
