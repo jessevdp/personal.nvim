@@ -1,6 +1,6 @@
 local M = {}
 
-M.config = {
+local config = {
   name = "aio_openai",
   env = {
     url = "https://iogpt-api-management-service.azure-api.net/openai/api/proxy/openai",
@@ -10,6 +10,14 @@ M.config = {
   schema = {
     model = {
       default = "gpt-4o",
+      choices = {
+        "gpt-4o",
+        "gpt-4o-mini",
+        "gpt-4",
+        "gpt-4-32k",
+        "gpt-3.5-turbo",
+        "gpt-3.5-turbo-16k",
+      },
     },
   },
   handlers = {
@@ -23,8 +31,8 @@ M.config = {
   },
 }
 
-M.setup = function()
-  return require("codecompanion.adapters").extend("openai_compatible", M.config)
+M.make = function()
+  return require("codecompanion.adapters").extend("openai_compatible", config)
 end
 
 return M

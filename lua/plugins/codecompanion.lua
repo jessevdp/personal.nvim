@@ -22,15 +22,15 @@ return {
           adapter = "aio_openai",
         },
       },
-      adapters = {
-        aio_openai = function()
-          return require("plugins.codecompanion.aio-openai-adapter").setup()
-        end,
-      },
       display = {
         diff = {
           provider = "mini_diff",
         },
+      },
+      adapters = {
+        aio_openai = function()
+          return require("plugins.codecompanion.aio-openai-adapter").make()
+        end,
       },
     },
     init = function()
