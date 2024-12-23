@@ -33,6 +33,15 @@ local function codecompanion_adapter_name()
   return " " .. chat.adapter.name
 end
 
+local function codecompanion_current_model_name()
+  local chat = require("codecompanion").buf_get_chat(vim.api.nvim_get_current_buf())
+  if not chat then
+    return nil
+  end
+
+  return chat.settings.model
+end
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -78,7 +87,9 @@ return {
             lualine_b = {
               codecompanion_adapter_name,
             },
-            lualine_c = {},
+            lualine_c = {
+              codecompanion_current_model_name,
+            },
             lualine_x = {},
             lualine_y = {
               "progress",
