@@ -50,6 +50,7 @@ return {
       },
     },
     init = function()
+      vim.cmd([[cab cc CodeCompanion]])
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
     dependencies = {
