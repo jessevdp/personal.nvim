@@ -17,12 +17,28 @@ return {
       strategies = {
         chat = {
           adapter = "aio_openai",
+          roles = {
+            llm = "Assistant",
+            user = "Me",
+          },
         },
         inline = {
           adapter = "aio_openai",
         },
       },
       display = {
+        chat = {
+          intro_message = "  What can I help with? (Press ? for options)",
+          show_references = true,
+          show_header_separator = false,
+          show_settings = false,
+          window = {
+            width = 0.4,
+            opts = {
+              relativenumber = false,
+            },
+          },
+        },
         diff = {
           provider = "mini_diff",
         },
