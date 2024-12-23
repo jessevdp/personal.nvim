@@ -23,6 +23,16 @@ return {
             llm = "Assistant",
             user = "Me",
           },
+          variables = {
+            ["rails_schema"] = {
+              callback = "plugins.codecompanion.variables.rails_schema",
+              description = "Share the contents of the Rails schema with the LLM",
+              opts = {
+                contains_code = true,
+                hide_reference = true,
+              },
+            },
+          },
         },
         inline = {
           adapter = "aio_openai",
