@@ -65,11 +65,18 @@ return {
         },
         lualine_c = {
           "filename",
+          function()
+            local register = vim.fn.reg_recording()
+            if #register > 0 then return "recording @" .. register
+            else return ""
+            end
+          end
         },
         lualine_x = {
           "filetype",
         },
         lualine_y = {
+          "searchcount",
           "progress",
         },
         lualine_z = {
