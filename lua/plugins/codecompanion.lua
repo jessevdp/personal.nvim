@@ -70,6 +70,9 @@ return {
           return require("plugins.codecompanion.aio-openai-adapter").make()
         end,
       },
+      prompt_library = {
+        ["Rails model"] = require("plugins.codecompanion.prompts.rails-modeller"),
+      },
     },
     init = function()
       vim.cmd([[cab cc CodeCompanion]])
