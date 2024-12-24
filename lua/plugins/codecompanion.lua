@@ -27,6 +27,9 @@ return {
         inline = {
           adapter = "aio_openai",
         },
+        cmd = {
+          adapter = "aio_openai",
+        },
       },
       display = {
         chat = {
