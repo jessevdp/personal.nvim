@@ -79,6 +79,33 @@ return {
       extensions = {
         "quickfix",
         {
+          filetypes = { "oil" },
+          sections = {
+            lualine_a = {
+              mode,
+            },
+            lualine_b = {
+              function()
+                local ok, oil = pcall(require, "oil")
+                if not ok then
+                  return ""
+                end
+
+                ---@diagnostic disable-next-line: param-type-mismatch
+                local path = vim.fn.fnamemodify(oil.get_current_dir(), ":~")
+                local modified = vim.api.nvim_get_option_value("modified", {})
+
+                local output = path
+                if modified then
+                  output = output .. " [+]"
+                end
+
+                return output
+              end,
+            },
+          },
+        },
+        {
           filetypes = { "codecompanion" },
           sections = {
             lualine_a = {
