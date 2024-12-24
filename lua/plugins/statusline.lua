@@ -93,14 +93,7 @@ return {
 
                 ---@diagnostic disable-next-line: param-type-mismatch
                 local path = vim.fn.fnamemodify(oil.get_current_dir(), ":~")
-                local modified = vim.api.nvim_get_option_value("modified", {})
-
-                local output = path
-                if modified then
-                  output = output .. " [+]"
-                end
-
-                return output
+                return path .. " %m"
               end,
             },
           },
