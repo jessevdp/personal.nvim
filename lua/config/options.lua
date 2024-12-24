@@ -41,6 +41,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
 
+-- The minimal number of columns to keep to the left and to the right of the cursor if 'nowrap' is set
+vim.opt.sidescrolloff = 8
+
 -- Netrw
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
