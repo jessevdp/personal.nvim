@@ -66,10 +66,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       {
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = { file_types = { "codecompanion" } },
-      },
-      {
         "echasnovski/mini.diff",
         config = function()
           local diff = require("mini.diff")
