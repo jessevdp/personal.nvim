@@ -26,6 +26,10 @@ return {
         NormalFloat = { link = "GruvboxFg1" },
         FloatTitle = { link = "FloatBorder" },
 
+        DevIconRb = { link = "GruvboxRed" },
+        DevIconErb = { link = "GruvboxRed" },
+        DevIconConfigRu = { link = "GruvboxRed" },
+
         ["@method.call"] = { link = "GruvboxAqua" },
         ["@function.call"] = { link = "GruvboxAqua" },
 
