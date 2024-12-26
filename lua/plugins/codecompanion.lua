@@ -64,6 +64,16 @@ return {
     init = function()
       vim.cmd([[cab cc CodeCompanion]])
       require("plugins.codecompanion.fidget-spinner"):init()
+
+      local group = vim.api.nvim_create_augroup("CodeCompanionHooks", {})
+
+      vim.api.nvim_create_autocmd({ "User" }, {
+        pattern = "CodeCompanionInlineFinished",
+        group = group,
+        callback = function(request)
+          vim.lsp.buf.format({ bufnr = request.buf })
+        end,
+      })
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
