@@ -33,8 +33,6 @@ return {
         ["@method.call"] = { link = "GruvboxAqua" },
         ["@function.call"] = { link = "GruvboxAqua" },
 
-        ["FlashMatch"] = { link = "IncSearch" },
-
         -- Ruby specific overrides
         ["@lsp.typemod.method.declaration.ruby"] = { link = "rubyMethodName" },
         ["@lsp.type.method.ruby"] = { link = "@function.call" },

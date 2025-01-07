@@ -3,6 +3,7 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
+    ---@diagnostic disable-next-line: missing-fields
     opts = {
       modes = {
         search = { enabled = false },
@@ -12,6 +13,9 @@ return {
         },
       },
     },
+    init = function()
+      vim.api.nvim_set_hl(0, "FlashLabel", { link = "Special" })
+    end,
     keys = {
       {
         "s",
@@ -25,7 +29,8 @@ return {
         "S",
         mode = { "n", "x", "o" },
         function()
-          require("flash").treesitter()
+          ---@diagnostic disable-next-line: missing-fields
+          require("flash").treesitter({ highlight = { backdrop = true } })
         end,
         desc = "Flash Treesitter Selection",
       },
