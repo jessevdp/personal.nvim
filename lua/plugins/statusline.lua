@@ -65,12 +65,17 @@ return {
         },
         lualine_c = {
           "filename",
-          function()
-            local register = vim.fn.reg_recording()
-            if #register > 0 then return "recording @" .. register
-            else return ""
-            end
-          end
+          {
+            function()
+              local register = vim.fn.reg_recording()
+              if #register > 0 then
+                return "recording @" .. register
+              else
+                return ""
+              end
+            end,
+            color = { fg = "#fabd2f", gui = "bold" }, -- TODO: don't directly rely on Gruvbox color here?
+          },
         },
         lualine_x = {
           "filetype",
