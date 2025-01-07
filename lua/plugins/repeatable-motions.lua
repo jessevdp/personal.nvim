@@ -1,6 +1,9 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = {
+      "jinh0/eyeliner.nvim",
+    },
     keys = {
       ";",
       ",",
@@ -16,10 +19,34 @@ return {
       vim.keymap.set(nxo, ";", ts_repeat_move.repeat_last_move)
       vim.keymap.set(nxo, ",", ts_repeat_move.repeat_last_move_opposite)
 
-      vim.keymap.set(nxo, "f", ts_repeat_move.builtin_f_expr, { expr = true })
-      vim.keymap.set(nxo, "F", ts_repeat_move.builtin_F_expr, { expr = true })
-      vim.keymap.set(nxo, "t", ts_repeat_move.builtin_t_expr, { expr = true })
-      vim.keymap.set(nxo, "T", ts_repeat_move.builtin_T_expr, { expr = true })
+      local function eyeliner_jump(key)
+        local forward = vim.list_contains({ "t", "f" }, key)
+        return function()
+          require("eyeliner").highlight({ forward = forward })
+          return ts_repeat_move["builtin_" .. key .. "_expr"]()
+        end
+      end
+
+      vim.keymap.set(nxo, "f", eyeliner_jump("f"), { expr = true })
+      vim.keymap.set(nxo, "F", eyeliner_jump("F"), { expr = true })
+      vim.keymap.set(nxo, "t", eyeliner_jump("t"), { expr = true })
+      vim.keymap.set(nxo, "T", eyeliner_jump("T"), { expr = true })
+    end,
+  },
+  {
+    "jinh0/eyeliner.nvim",
+    opts = {
+      highlight_on_key = true,
+      dim = true,
+      default_keymaps = false,
+    },
+    init = function()
+      vim.api.nvim_set_hl(0, "EyelinerDimmed", { link = "Comment" })
+      vim.api.nvim_set_hl(0, "EyelinerPrimary", { link = "SpecialChar" })
+      vim.api.nvim_set_hl(0, "EyelinerSecondary", { link = "Type" })
+      -- vim.api.nvim_set_hl(0, "EyelinerDimmed", { link = "Comment" })
+      -- vim.api.nvim_set_hl(0, "EyelinerPrimary", { link = "IncSearch" })
+      -- vim.api.nvim_set_hl(0, "EyelinerSecondary", { link = "Substitute" })
     end,
   },
 }
