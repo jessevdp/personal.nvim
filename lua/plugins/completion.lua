@@ -79,7 +79,7 @@ return {
           if type == "/" or type == "?" then
             return { "buffer" }
           elseif type == ":" then
-            return { "cmdline" }
+            return { "cmdline", "path" }
           else
             return {}
           end
