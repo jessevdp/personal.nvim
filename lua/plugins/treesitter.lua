@@ -56,7 +56,10 @@ return {
       },
       indent = {
         enable = true,
-        disable = { "ruby" },
+        disable = {
+          "ruby",
+          "nix",
+        },
       },
       incremental_selection = {
         enable = true,

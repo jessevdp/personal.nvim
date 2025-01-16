@@ -27,12 +27,36 @@ return {
             require("telescope.builtin").lsp_dynamic_workspace_symbols,
             "[S]earch [W]orkspace [S]ymbols"
           )
+
+          vim.lsp.inlay_hint.enable(true)
         end,
       })
 
       local lspconfig = require("lspconfig").util.default_config
       local completion_capabilities = require("blink.cmp").get_lsp_capabilities()
       lspconfig.capabilities = vim.tbl_deep_extend("force", lspconfig.capabilities, completion_capabilities)
+
+      require("lspconfig").nixd.setup({
+        cmd = { "nixd" },
+        settings = {
+          nixd = {
+            nixpkgs = {
+              expr = "import (builtins.getFlake \"/Users/jessevanderpluijm/.config/nix-system/config\").inputs.nixpkgs { }",
+            },
+            formatting = {
+              command = { "alejandra" },
+            },
+            options = {
+              nix_darwin = {
+                expr = "(builtins.getFlake \"/Users/jessevanderpluijm/.config/nix-system/config\").darwinConfigurations.\"LJQPCW4D95\".options",
+              },
+              home_manager = {
+                expr = "(builtins.getFlake \"/Users/jessevanderpluijm/.config/nix-system/config\").editorHomeManagerConfiguration.options",
+              },
+            },
+          },
+        },
+      })
     end,
   },
   {
@@ -93,6 +117,10 @@ return {
           -- null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.hover.dictionary,
           null_ls.builtins.hover.printenv,
+
+          -- Nix
+          null_ls.builtins.diagnostics.statix,
+          null_ls.builtins.diagnostics.deadnix,
         },
       })
     end,
