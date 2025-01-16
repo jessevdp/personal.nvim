@@ -11,6 +11,7 @@ return {
         "markdown",
 
         -- disable rulers for plugin specific windows/buffers
+        "alpha",
         "lazy",
         "checkhealth",
         "mason",
