@@ -36,6 +36,17 @@ return {
       local completion_capabilities = require("blink.cmp").get_lsp_capabilities()
       lspconfig.capabilities = vim.tbl_deep_extend("force", lspconfig.capabilities, completion_capabilities)
 
+      require("lspconfig").lua_ls.setup({
+        settings = {
+          Lua = {
+            format = { enable = false },
+          },
+        },
+      })
+
+      require("lspconfig").ts_ls.setup({})
+      require("lspconfig").eslint.setup({})
+
       require("lspconfig").nixd.setup({
         cmd = { "nixd" },
         settings = {
@@ -60,63 +71,16 @@ return {
     end,
   },
   {
-    "williamboman/mason.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
-    -- NOTE: Remove this if/when Mason implements its own lockfile feature.
-    -- See: https://github.com/williamboman/mason.nvim/issues/731
-    "zapling/mason-lock.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    opts = {
-      ensure_installed = { "lua_ls" },
-      handlers = {
-        function(server_name)
-          require("lspconfig")[server_name].setup({})
-        end,
-        lua_ls = function()
-          require("lspconfig").lua_ls.setup({
-            settings = {
-              Lua = {
-                format = { enable = false },
-              },
-            },
-          })
-        end,
-        ruby_lsp = function()
-          require("lspconfig").ruby_lsp.setup({
-            cmd = { vim.fn.expand("~") .. "/.rbenv/shims/ruby-lsp" },
-          })
-        end,
-      },
-    },
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     event = { "BufReadPost", "BufNewFile", "VeryLazy" },
-    dependencies = {
-      "nvimtools/none-ls.nvim",
-    },
     config = function()
-      require("mason-null-ls").setup({
-        ensure_installed = { "stylua", "jq" },
-        automatic_installation = false,
-        handlers = {},
-      })
-
       local null_ls = require("null-ls")
       null_ls.setup({
         sources = {
-          -- add sources not supported by Mason here
-          -- null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.hover.dictionary,
           null_ls.builtins.hover.printenv,
+
+          null_ls.builtins.formatting.stylua,
 
           -- Nix
           null_ls.builtins.diagnostics.statix,
