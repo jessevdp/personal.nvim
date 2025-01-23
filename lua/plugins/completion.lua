@@ -51,13 +51,12 @@ return {
           },
         },
         list = {
-          selection = function(context)
-            if context.mode == "cmdline" then
-              return "auto_insert"
-            else
-              return "preselect"
-            end
-          end,
+          selection = {
+            preselect = true,
+            auto_insert = function(context)
+              return context.mode == "cmdline"
+            end,
+          },
         },
         documentation = {
           auto_show = true,
