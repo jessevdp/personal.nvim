@@ -29,50 +29,51 @@ return {
       desc = "[S]earch Fuzzily in current buffer",
     },
   },
-  opts = {
-    defaults = {
-      prompt_prefix = "   ",
-      selection_caret = " 󰁔 ",
-      entry_prefix = "   ",
-      sorting_strategy = "ascending",
-      layout_config = {
-        horizontal = {
-          prompt_position = "top",
-          preview_width = 0.55,
-        },
-        width = 0.77,
-        height = 0.80,
-      },
-      borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-      mappings = {
-        i = {
-          ["<C-q>"] = "send_to_qflist",
-          ["<C-Q>"] = "add_to_qflist",
-          ["<M-q>"] = "smart_send_to_qflist",
-          ["<M-Q>"] = "smart_add_to_qflist",
-        },
-        n = {
-          ["q"] = "close",
-
-          ["<C-q>"] = "send_to_qflist",
-          ["<C-Q>"] = "add_to_qflist",
-          ["<M-q>"] = "smart_send_to_qflist",
-          ["<M-Q>"] = "smart_add_to_qflist",
-        },
-      },
-    },
-    extensions = {
-      ["ui-select"] = {
-        require("telescope.themes").get_dropdown({
-          borderchars = {
-            prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-            results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-            preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+  config = function()
+    require("telescope").setup({
+      defaults = {
+        prompt_prefix = "   ",
+        selection_caret = " 󰁔 ",
+        entry_prefix = "   ",
+        sorting_strategy = "ascending",
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.55,
           },
-        }),
+          width = 0.77,
+          height = 0.80,
+        },
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        mappings = {
+          i = {
+            ["<C-q>"] = "send_to_qflist",
+            ["<C-Q>"] = "add_to_qflist",
+            ["<M-q>"] = "smart_send_to_qflist",
+            ["<M-Q>"] = "smart_add_to_qflist",
+          },
+          n = {
+            ["q"] = "close",
+            ["<C-q>"] = "send_to_qflist",
+            ["<C-Q>"] = "add_to_qflist",
+            ["<M-q>"] = "smart_send_to_qflist",
+            ["<M-Q>"] = "smart_add_to_qflist",
+          },
+        },
       },
-    },
-  },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({
+            borderchars = {
+              prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+              results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+              preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+            },
+          }),
+        },
+      },
+    })
+  end,
   init = function()
     require("telescope").load_extension("ui-select")
   end,
