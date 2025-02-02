@@ -20,7 +20,14 @@ return {
         chat = {
           adapter = "aio_openai",
           roles = {
-            llm = "Assistant",
+            ---@type fun(adapter: CodeCompanion.Adapter): string
+            llm = function(adapter)
+              local model = adapter.schema.model.default
+              if type(model) == "function" then
+                model = model()
+              end
+              return string.format("Assistant (%s, %s)", adapter.formatted_name, model)
+            end,
             user = "Me",
           },
         },
