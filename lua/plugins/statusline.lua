@@ -30,7 +30,7 @@ local function codecompanion_adapter_name()
     return nil
   end
 
-  return " " .. chat.adapter.name
+  return " " .. chat.adapter.formatted_name
 end
 
 local function codecompanion_current_model_name()
