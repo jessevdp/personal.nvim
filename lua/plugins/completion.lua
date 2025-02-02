@@ -70,9 +70,6 @@ return {
       signature = { enabled = true },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
-        per_filetype = {
-          ["codecompanion"] = { "codecompanion", "lsp", "buffer" },
-        },
         cmdline = function()
           local type = vim.fn.getcmdtype()
           if type == "/" or type == "?" then
@@ -83,13 +80,6 @@ return {
             return {}
           end
         end,
-        providers = {
-          codecompanion = {
-            name = "CodeCompanion",
-            module = "codecompanion.providers.completion.blink",
-            enabled = true,
-          },
-        },
       },
     },
   },
