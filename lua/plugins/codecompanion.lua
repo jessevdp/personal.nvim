@@ -59,6 +59,9 @@ return {
         aio_openai = function()
           return require("plugins.codecompanion.aio-openai-adapter").make()
         end,
+        aio_aws_bedrock = function()
+          return require("plugins.codecompanion.aio-aws-bedrock-adapter").make()
+        end,
       },
     },
     init = function()
