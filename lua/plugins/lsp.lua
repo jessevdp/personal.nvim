@@ -36,38 +36,53 @@ return {
       local completion_capabilities = require("blink.cmp").get_lsp_capabilities()
       lspconfig.capabilities = vim.tbl_deep_extend("force", lspconfig.capabilities, completion_capabilities)
 
-      require("lspconfig").lua_ls.setup({
-        settings = {
-          Lua = {
-            format = { enable = false },
-          },
-        },
-      })
-
-      require("lspconfig").ts_ls.setup({})
-      require("lspconfig").eslint.setup({})
-
-      require("lspconfig").nixd.setup({
-        cmd = { "nixd" },
-        settings = {
-          nixd = {
-            nixpkgs = {
-              expr = "import (builtins.getFlake \"/Users/jessevanderpluijm/.config/nix-system/config\").inputs.nixpkgs { }",
-            },
-            formatting = {
-              command = { "alejandra" },
-            },
-            options = {
-              nix_darwin = {
-                expr = "(builtins.getFlake \"/Users/jessevanderpluijm/.config/nix-system/config\").darwinConfigurations.\"LJQPCW4D95\".options",
-              },
-              home_manager = {
-                expr = "(builtins.getFlake \"/Users/jessevanderpluijm/.config/nix-system/config\").editorHomeManagerConfiguration.options",
-              },
+      if vim.fn.executable("lua-language-server") == 1 then
+        require("lspconfig").lua_ls.setup({
+          settings = {
+            Lua = {
+              format = { enable = false },
             },
           },
-        },
-      })
+        })
+      end
+
+      if vim.fn.executable("ruby-lsp") == 1 then
+        require("lspconfig").ruby_lsp.setup({
+          cmd = { "direnv", "exec", ".", "ruby-lsp" },
+        })
+      end
+
+      if vim.fn.executable("typescript-language-server") == 1 then
+        require("lspconfig").ts_ls.setup({})
+      end
+
+      if vim.fn.executable("vscode-eslint-language-server") == 1 then
+        require("lspconfig").eslint.setup({})
+      end
+
+      if vim.fn.executable("nixd") == 1 and vim.fn.executable("alejandra") == 1 then
+        require("lspconfig").nixd.setup({
+          cmd = { "nixd" },
+          settings = {
+            nixd = {
+              nixpkgs = {
+                expr = 'import (builtins.getFlake "/Users/jessevanderpluijm/.config/nix-system/config").inputs.nixpkgs { }',
+              },
+              formatting = {
+                command = { "alejandra" },
+              },
+              options = {
+                nix_darwin = {
+                  expr = '(builtins.getFlake "/Users/jessevanderpluijm/.config/nix-system/config").darwinConfigurations."LJQPCW4D95".options',
+                },
+                home_manager = {
+                  expr = '(builtins.getFlake "/Users/jessevanderpluijm/.config/nix-system/config").editorHomeManagerConfiguration.options',
+                },
+              },
+            },
+          },
+        })
+      end
     end,
   },
   {
