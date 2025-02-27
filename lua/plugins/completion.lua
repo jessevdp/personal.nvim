@@ -17,21 +17,17 @@ return {
         ["<C-f>"] = { "scroll_documentation_down", "fallback" },
         ["<Tab>"] = { "snippet_forward", "fallback" },
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
-        cmdline = {
-          ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-          ["<Tab>"] = { "show", "select_next", "fallback" },
-          ["<S-Tab>"] = { "select_prev", "fallback" },
-          ["<C-e>"] = { "hide" },
-          ["<C-y>"] = { "select_and_accept" },
-          ["<C-p>"] = { "select_prev", "fallback" },
-          ["<C-n>"] = { "select_next", "fallback" },
-          ["<C-b>"] = { "scroll_documentation_up", "fallback" },
-          ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-        },
       },
       appearance = {
         nerd_font_variant = "mono",
       },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+        per_filetype = {
+          ["codecompanion"] = { "codecompanion", "lsp", "buffer" },
+        },
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
       completion = {
         ghost_text = { enabled = true },
         menu = {
@@ -53,9 +49,7 @@ return {
         list = {
           selection = {
             preselect = true,
-            auto_insert = function(context)
-              return context.mode == "cmdline"
-            end,
+            auto_insert = false,
           },
         },
         documentation = {
@@ -67,28 +61,14 @@ return {
           },
         },
       },
-      signature = { enabled = true },
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
-        per_filetype = {
-          ["codecompanion"] = { "codecompanion", "lsp", "buffer" },
+      signature = { enabled = false },
+      cmdline = {
+        enabled = true,
+        keymap = {
+          preset = "cmdline",
         },
-        cmdline = function()
-          local type = vim.fn.getcmdtype()
-          if type == "/" or type == "?" then
-            return { "buffer" }
-          elseif type == ":" then
-            return { "cmdline", "path" }
-          else
-            return {}
-          end
-        end,
-        providers = {
-          codecompanion = {
-            name = "CodeCompanion",
-            module = "codecompanion.providers.completion.blink",
-            enabled = true,
-          },
+        completion = {
+          ghost_text = { enabled = true },
         },
       },
     },
