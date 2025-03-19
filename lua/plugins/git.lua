@@ -77,6 +77,7 @@ return {
 
         -- Text object
         map({ "o", "x" }, "ih", gitsigns.select_hunk, "Git [H]unk")
+        map({ "o", "x" }, "ah", gitsigns.select_hunk, "Git [H]unk")
       end,
     },
   },
