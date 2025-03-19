@@ -51,7 +51,7 @@ vim.opt.shortmess:append({
   -- m = true, -- use "[+]" instead of "[Modified]"
   -- r = true, -- use "[RO]" instead of "[readonly]"
   -- w = true, -- use "[w]" instead of "written" and "[a]" instead of "appended"
-  a = true, -- all of the above abbreviations
+  a = true, -- all the above abbreviations
   o = true, -- overwrite message for writing a file with subsequent message for reading a file
   O = true, -- message for reading a file overwrites any previous message
   s = true, -- don't give "search hit BOTTOM, continuing at TOP" etc.
