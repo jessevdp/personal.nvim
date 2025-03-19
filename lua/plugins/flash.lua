@@ -12,6 +12,9 @@ return {
           remote_op = { restore = true, motion = true },
         },
       },
+      prompt = {
+        prefix = { { " 󰉁 ", "FlashPromptIcon" } },
+      },
     },
     init = function()
       vim.api.nvim_set_hl(0, "FlashLabel", { link = "Special" })
