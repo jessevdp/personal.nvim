@@ -36,6 +36,21 @@ return {
       local completion_capabilities = require("blink.cmp").get_lsp_capabilities()
       lspconfig.capabilities = vim.tbl_deep_extend("force", lspconfig.capabilities, completion_capabilities)
 
+      if vim.fn.executable("harper-ls") == 1 then
+        require("lspconfig").harper_ls.setup({
+          settings = {
+            ["harper-ls"] = {
+              linters = {
+                SpellCheck = true,
+                SentenceCapitalization = false,
+              },
+              diagnosticSeverity = "hint",
+              isolateEnglish = false,
+            },
+          },
+        })
+      end
+
       if vim.fn.executable("lua-language-server") == 1 then
         require("lspconfig").lua_ls.setup({
           settings = {
@@ -88,12 +103,32 @@ return {
   {
     "nvimtools/none-ls.nvim",
     event = { "BufReadPost", "BufNewFile", "VeryLazy" },
+    -- dependencies = {
+    --   "davidmh/cspell.nvim",
+    -- },
     config = function()
+      -- local cspell = require("cspell")
+      -- local cspell_config = {
+      --   config_file_preferred_name = "cspell.json",
+      --   cspell_config_dirs = {
+      --     (os.getenv("XDG_CONFIG_HOME") or "~/.config") .. "/cspell/",
+      --   },
+      -- }
+
       local null_ls = require("null-ls")
+
       null_ls.setup({
         sources = {
           null_ls.builtins.hover.dictionary,
           null_ls.builtins.hover.printenv,
+
+          -- cspell.code_actions.with({ config = cspell_config }),
+          -- cspell.diagnostics.with({
+          --   config = cspell_config,
+          --   diagnostics_postprocess = function(diagnostic)
+          --     diagnostic.severity = vim.diagnostic.severity.HINT
+          --   end,
+          -- }),
 
           null_ls.builtins.formatting.stylua,
 
