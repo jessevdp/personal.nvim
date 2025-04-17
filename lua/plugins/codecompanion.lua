@@ -18,7 +18,7 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "aio_openai",
+          adapter = "bonzai",
           roles = {
             ---@type fun(adapter: CodeCompanion.Adapter): string
             llm = function(adapter)
@@ -32,10 +32,10 @@ return {
           },
         },
         inline = {
-          adapter = "aio_openai",
+          adapter = "bonzai",
         },
         cmd = {
-          adapter = "aio_openai",
+          adapter = "bonzai",
         },
       },
       display = {
@@ -56,11 +56,8 @@ return {
         },
       },
       adapters = {
-        aio_openai = function()
-          return require("plugins.codecompanion.aio-openai-adapter").make()
-        end,
-        aio_aws_bedrock = function()
-          return require("plugins.codecompanion.aio-aws-bedrock-adapter").make()
+        bonzai = function()
+          return require("plugins.codecompanion.bonzai-universal-adapter").make()
         end,
       },
     },
