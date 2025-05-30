@@ -39,10 +39,11 @@ return {
         layout_config = {
           horizontal = {
             prompt_position = "top",
-            preview_width = 0.55,
+            preview_width = 0.5,
+            preview_cutoff = 160,
           },
-          width = 0.77,
-          height = 0.80,
+          width = 0.8,
+          height = 0.9,
         },
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         mappings = {
