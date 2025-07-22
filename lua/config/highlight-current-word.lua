@@ -13,7 +13,8 @@ vim.api.nvim_create_autocmd("CursorHold", {
     end
 
     local word = vim.fn.expand("<cword>")
-    vim.fn.matchadd(highlight, "\\<" .. word .. "\\>")
+    local escaped_word = vim.fn.escape(word, '\\')
+    vim.fn.matchadd(highlight, "\\V\\<" .. escaped_word .. "\\>")
   end,
 })
 
