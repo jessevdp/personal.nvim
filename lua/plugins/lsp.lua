@@ -75,6 +75,16 @@ return {
         require("lspconfig").eslint.setup({})
       end
 
+      if vim.fn.executable("vscode-json-language-server") == 1 then
+        require("lspconfig").jsonls.setup({
+          settings = {
+            json = {
+              validate = { enable = true },
+            },
+          },
+        })
+      end
+
       if vim.fn.executable("nixd") == 1 and vim.fn.executable("alejandra") == 1 then
         require("lspconfig").nixd.setup({
           cmd = { "nixd" },
