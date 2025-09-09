@@ -56,9 +56,11 @@ return {
         },
       },
       adapters = {
-        bonzai = function()
-          return require("plugins.codecompanion.bonzai-universal-adapter").make()
-        end,
+        http = {
+          bonzai = function()
+            return require("plugins.codecompanion.bonzai-universal-adapter").make()
+          end,
+        },
       },
     },
     init = function()
